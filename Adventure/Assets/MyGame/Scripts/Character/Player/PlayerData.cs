@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerData : CharacterData
 {
+    /*
     [SerializeField] protected Text m_healthText;
     public HealthBar m_healthBar;
 
@@ -25,4 +26,5 @@ public class PlayerData : CharacterData
         m_healthBar.SetHealth(m_currentHealth);
         m_healthText.text = m_currentHealth + " / " + m_maxHealth;
     }
+    */
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class CharacterData : MonoBehaviour
 {
+    /*
     Animator m_animator;
     [SerializeField] protected float m_maxHealth;
     [SerializeField] protected float m_currentHealth;
@@ -72,4 +73,5 @@ public class CharacterData : MonoBehaviour
         m_animator.SetBool("IsDead", false);
         gameObject.SetActive(false);
     }
+    */
 }

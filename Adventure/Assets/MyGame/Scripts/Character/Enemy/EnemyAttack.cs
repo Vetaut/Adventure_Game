@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAttack : CharacterAttack
 {
+    /*
     private float lastAttackTime = 0;
 
     public void enemyAttack()
@@ -14,5 +15,5 @@ public class EnemyAttack : CharacterAttack
             lastAttackTime = Time.time;
         }
     }
-
+    */
 }

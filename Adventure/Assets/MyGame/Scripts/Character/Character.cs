@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    CharacterData characterData;
+    CharacterMovement characterMovement;
+    CharacterAttack characterAttack;
+
+
+
+    /*
     protected Animator m_animator;
 
     protected CharacterAttack characterAttack;
@@ -18,4 +25,5 @@ public class Character : MonoBehaviour
     {
         characterAttack.Attack();
     }
+    */
 }

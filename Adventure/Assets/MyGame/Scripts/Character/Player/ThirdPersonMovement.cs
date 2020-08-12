@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ThirdPersonMovement : CharacterMovement
 {
+    /*
     public Transform cam;
 
     private void Start()
@@ -35,4 +36,5 @@ public class ThirdPersonMovement : CharacterMovement
     {
         return Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
     }
+    */
 }

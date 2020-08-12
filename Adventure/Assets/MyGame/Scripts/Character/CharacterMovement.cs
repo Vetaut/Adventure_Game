@@ -1,9 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CharacterMovement : MonoBehaviour
 {
+    public NavMeshAgent m_agent;
+    private Rigidbody m_rigidbody;
+
+    private void Awake()
+    {
+        m_rigidbody = GetComponent<Rigidbody>();
+        m_agent = GetComponent<NavMeshAgent>();
+    }
+
+    private void OnEnable()
+    {
+        m_rigidbody.isKinematic = false;
+    }
+
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+
+        }
+    }
+
+
+    /*
     [SerializeField] protected CharacterController controller;
 
     Vector3 m_velocity;
@@ -96,4 +121,5 @@ public class CharacterMovement : MonoBehaviour
             m_animator.SetBool("OnGround", m_isGrounded);
         }
     }
+    */
 }

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    /*
     [SerializeField] private float m_lookRadius = 5.0f;
     [SerializeField] private float m_turnSpeed = 5.0f;
 
@@ -72,4 +73,5 @@ public class EnemyController : MonoBehaviour
             m_animator.SetFloat("Running", data);
         }
     }
+    */
 }

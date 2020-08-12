@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharacterAttack : MonoBehaviour
 {
+    public float m_speed = 5.0f;
+    /*
     CharacterData character;
     [SerializeField] Weapon weapon;
     Animator m_animator;
@@ -73,4 +75,5 @@ public class CharacterAttack : MonoBehaviour
     {
         return m_attackPoint;
     }
+    */
 }
