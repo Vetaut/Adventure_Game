@@ -16,7 +16,30 @@ public class PlayerControlledBrain : CharacterBrain
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
-                movement.m_agent.destination = hit.point;
+
+                Interactable interactable;
+
+                if(hit.collider.TryGetComponent(out interactable))
+                {
+                    interactable.IsFocused(character.transform);
+
+                    if (interactable.IsAbleToGrab(character.transform.position))
+                    {
+                        interactable.Interact();
+                    }
+                    else
+                    {
+                        // Vector3 offset = character.transform.position - interactable.transform.position;
+                        // offset.y = 0;
+                        // Vector3 destination = interactable.transform.position + (offset.normalized * interactable._m_distToGrab);
+
+                        movement.Move(interactable.transform.position, interactable._m_distToGrab * 0.8f);
+                    }
+                }
+                else
+                {
+                    movement.Move(hit.point);
+                }
             }
         }
     }

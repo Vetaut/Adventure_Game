@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    static GameManager _instance;
+    static public GameManager instance { get => _instance; }
+
+    public bool m_isFighting = false;
+
+
+
+    /*
     public GameObject inventory;
     public GameObject m_weapon;
     public GameObject m_sheathedWeapon;
@@ -69,7 +77,7 @@ public class GameManager : MonoBehaviour
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
 
             }
-            */
+            
         }
     }
 
@@ -112,4 +120,5 @@ public class GameManager : MonoBehaviour
 
         m_shouldBeSheathed = !m_shouldBeSheathed;
     }
+    */
 }

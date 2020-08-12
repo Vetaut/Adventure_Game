@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class CharacterData : MonoBehaviour
 {
+    public List<Item> inventory = new List<Item>(10); 
+
+    public void AddItemToInventory(Item item)
+    {
+        inventory.Add(item);
+    }
+
     /*
     Animator m_animator;
     [SerializeField] protected float m_maxHealth;

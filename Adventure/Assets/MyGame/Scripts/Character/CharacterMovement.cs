@@ -5,28 +5,37 @@ using UnityEngine.AI;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public NavMeshAgent m_agent;
-    private Rigidbody m_rigidbody;
+    private NavMeshAgent m_agent;
 
     private void Awake()
     {
-        m_rigidbody = GetComponent<Rigidbody>();
         m_agent = GetComponent<NavMeshAgent>();
     }
 
     private void OnEnable()
     {
-        m_rigidbody.isKinematic = false;
+
     }
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
 
-        }
     }
 
+
+    public void Move(Vector3 destination, float stoppingDist = 0)
+    {
+        if (m_agent.stoppingDistance != stoppingDist) m_agent.stoppingDistance = stoppingDist;
+        m_agent.destination = destination;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Begin Battle!");
+        //        GameManager.instance.m_isFighting = true;
+        other.gameObject.GetComponent<CharacterThinker>().brain = (CharacterBrain)ScriptableObject.CreateInstance("DeadBrain");
+        
+    }
 
     /*
     [SerializeField] protected CharacterController controller;
