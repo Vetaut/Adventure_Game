@@ -24,14 +24,6 @@ public class GameManager : MonoBehaviour
     public GameState m_state = GameState.PassiveState;
     public BattleManager battleManager;
 
-    public void BeginBattle(CharacterThinker player, CharacterThinker enemy)
-    {
-        m_state = GameState.BattleState;
-        Debug.Log(player.name + " " + enemy.name);
-        Debug.Log(battleManager.printHere());
-        battleManager.SetUpBattle(player, enemy);
-    }
-
     /*
     public GameObject inventory;
     public GameObject m_weapon;

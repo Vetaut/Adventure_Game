@@ -9,12 +9,6 @@ class EnemyTurn : BattleState
     }
 
 
-    public override IEnumerator Start()
-    {
-        _battleManager.enemy.brain.BattleThink(_battleManager.enemy);
-
-        yield break;
-    }
 
     
 }

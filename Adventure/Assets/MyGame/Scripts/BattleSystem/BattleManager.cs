@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    public CharacterThinker player;
-    public CharacterThinker enemy;
-    public CharacterData playerData;
-    public CharacterData enemyData;
+    int player;
+    int enemy;
 
     BattleState m_currentState;
 
@@ -16,12 +14,9 @@ public class BattleManager : MonoBehaviour
         return "Here";
     }
 
-    public void SetUpBattle(CharacterThinker player, CharacterThinker enemy)
+    public void SetUpBattle()
     {
-        this.player = player;
-        this.enemy = enemy;
-        player.TryGetComponent(out playerData);
-        enemy.TryGetComponent(out enemyData);
+
 
         SetState(new BeginState(this));
     }
