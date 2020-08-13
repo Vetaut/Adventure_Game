@@ -5,8 +5,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    #region Singleton
     static GameManager _instance;
     static public GameManager instance { get => _instance; }
+
+    
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+            Destroy(this.gameObject);
+        else
+            _instance = this;
+    }
+    #endregion
 
     public bool m_isFighting = false;
 

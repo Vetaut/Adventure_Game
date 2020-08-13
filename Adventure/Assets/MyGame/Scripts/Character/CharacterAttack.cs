@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class CharacterAttack : MonoBehaviour
 {
+    [SerializeField] protected float m_attackPower = 10.0f;
+    [SerializeField] protected float m_attackRange = 0.5f;
+    public Weapon weapon;
+
+    public void Attack()
+    {
+
+    }
     /*
     CharacterData character;
-    [SerializeField] Weapon weapon;
+    
     Animator m_animator;
 
-    [SerializeField] protected float m_attackPower = 10.0f;
+    
 
     [SerializeField] protected Transform m_attackPoint;
-    [SerializeField] protected float m_attackRange = 0.5f;
+    
     [SerializeField] protected LayerMask m_enemiesLayers;
 
     protected bool m_isAttacking = false;

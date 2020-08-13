@@ -32,7 +32,7 @@ public class CharacterMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Begin Battle!");
-        //        GameManager.instance.m_isFighting = true;
+        GameManager.instance.m_isFighting = true;
         other.gameObject.GetComponent<CharacterThinker>().brain = (CharacterBrain)ScriptableObject.CreateInstance("DeadBrain");
         
     }
