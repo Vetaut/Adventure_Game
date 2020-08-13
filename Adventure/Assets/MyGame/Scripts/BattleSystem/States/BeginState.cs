@@ -10,9 +10,11 @@ public class BeginState : BattleState
 
     public override IEnumerator Start()
     {
-        Debug.Log("Start Methods");
+        Debug.Log("Battle Manager Began Fight!");
 
         yield return new WaitForSeconds(2f);
+
+        _battleManager.SetState(new PlayerTurnState(_battleManager));
     }
 
 }

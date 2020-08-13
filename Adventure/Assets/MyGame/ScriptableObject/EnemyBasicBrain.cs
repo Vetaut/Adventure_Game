@@ -10,7 +10,7 @@ public class EnemyBasicBrain : CharacterBrain
     [SerializeField] private float timer = 0.0f;
 
 
-    public override void Think(CharacterThinker character)
+    public override void PassiveThink(CharacterThinker character)
     {
         var movement = character.GetComponent<CharacterMovement>();
 
@@ -22,6 +22,11 @@ public class EnemyBasicBrain : CharacterBrain
             movement.Move(destination);
             timer = 0;
         }
+    }
+
+    public override bool BattleThink(CharacterThinker character)
+    {
+        return true;
     }
 
     private Vector3 RandomDestination(Transform transform)

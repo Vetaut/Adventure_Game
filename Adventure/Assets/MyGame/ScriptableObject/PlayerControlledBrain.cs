@@ -6,11 +6,24 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Brains/Player Controlled")]
 public class PlayerControlledBrain : CharacterBrain
 {
-    public override void Think(CharacterThinker character)
-    {
-        var movement = character.GetComponent<CharacterMovement>();
+    CharacterMovement movement;
+    [SerializeField] LayerMask enemyLayer;
+    private delegate IEnumerator action();
 
-        if(Input.GetMouseButtonDown(0))
+    public override void Initialize(CharacterThinker character)
+    {
+        movement = character.GetComponent<CharacterMovement>();
+    }
+
+    public override void PassiveThink(CharacterThinker character)
+    {
+        movement = character.GetComponent<CharacterMovement>();
+        LeftMouseDown(character);
+    }
+
+    private void LeftMouseDown(CharacterThinker character)
+    {
+        if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
 
@@ -19,7 +32,7 @@ public class PlayerControlledBrain : CharacterBrain
 
                 Interactable interactable;
 
-                if(hit.collider.TryGetComponent(out interactable))
+                if (hit.collider.TryGetComponent(out interactable))
                 {
                     interactable.IsFocused(character.transform);
 
@@ -42,5 +55,23 @@ public class PlayerControlledBrain : CharacterBrain
                 }
             }
         }
+    }
+
+
+    public override bool BattleThink(CharacterThinker character)
+    {
+        if (Input.GetMouseButton(0))
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, enemyLayer))
+            {
+                Debug.Log("I attempted an attack");
+                GameManager.instance.battleManager.PerformAttack();
+                return false;
+            }
+        }
+
+        return true;
     }
 }

@@ -5,5 +5,6 @@ using UnityEngine;
 public abstract class CharacterBrain : ScriptableObject
 {
     public virtual void Initialize(CharacterThinker character) { }
-    public abstract void Think(CharacterThinker character);
+    public abstract void PassiveThink(CharacterThinker character);
+    public abstract bool BattleThink(CharacterThinker character);
 }

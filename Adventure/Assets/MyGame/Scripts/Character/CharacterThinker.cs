@@ -40,7 +40,10 @@ public class CharacterThinker : MonoBehaviour
 
     private void Update()
     {
-        brain.Think(this);
+        if (GameManager.instance.m_state == GameManager.GameState.PassiveState)
+        {
+            brain.PassiveThink(this);
+        }
     }
 
     /*

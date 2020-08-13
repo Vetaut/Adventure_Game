@@ -18,10 +18,10 @@ public class CharacterAnimManager : MonoBehaviour
 
     private void Update()
     {
-        RunAnimationController();
+        RunningAnimationController();
     }
 
-    private void RunAnimationController()
+    private void RunningAnimationController()
     {
         if (m_agent.velocity.magnitude > 0)
         {

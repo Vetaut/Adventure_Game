@@ -4,10 +4,27 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    CharacterData player;
-    CharacterData enemy;
+    public CharacterThinker player;
+    public CharacterThinker enemy;
+    public CharacterData playerData;
+    public CharacterData enemyData;
 
     BattleState m_currentState;
+
+    public string printHere()
+    {
+        return "Here";
+    }
+
+    public void SetUpBattle(CharacterThinker player, CharacterThinker enemy)
+    {
+        this.player = player;
+        this.enemy = enemy;
+        player.TryGetComponent(out playerData);
+        enemy.TryGetComponent(out enemyData);
+
+        SetState(new BeginState(this));
+    }
 
     public void SetState(BattleState state)
     {
@@ -15,7 +32,7 @@ public class BattleManager : MonoBehaviour
         StartCoroutine(state.Start());
     }
 
-    public void OnAttackButton()
+    public void PerformAttack()
     {
         StartCoroutine(m_currentState.Attack());
     }
